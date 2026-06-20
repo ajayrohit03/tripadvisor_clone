@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripAdvisor Clone – Hotels, Flights, Restaurants</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ======================== HEADER ======================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <a href="#" class="logo" aria-label="TripAdvisor home">
+        <div class="logo__owl">
+          <svg viewBox="0 0 60 40" width="48" height="32" aria-hidden="true">
+            <ellipse cx="20" cy="24" rx="14" ry="14" fill="#34e0a1"/>
+            <ellipse cx="40" cy="24" rx="14" ry="14" fill="#34e0a1"/>
+            <circle cx="20" cy="24" r="6" fill="#fff"/>
+            <circle cx="40" cy="24" r="6" fill="#fff"/>
+            <circle cx="20" cy="24" r="3" fill="#000"/>
+            <circle cx="40" cy="24" r="3" fill="#000"/>
+            <ellipse cx="30" cy="8" rx="18" ry="8" fill="#34e0a1"/>
+          </svg>
+        </div>
+        <span class="logo__text">TripAdvisor</span>
+      </a>
+
+      <!-- Search bar -->
+      <form class="header__search" role="search">
+        <i class="fas fa-search header__search-icon"></i>
+        <input type="text" placeholder="Where to?" aria-label="Search destinations, hotels, restaurants" />
+        <button type="submit" class="header__search-btn">Search</button>
+      </form>
+
+      <!-- Nav links -->
+      <nav class="header__nav" aria-label="Primary navigation">
+        <a href="#hotels" class="header__nav-link"><i class="fas fa-hotel"></i> Hotels</a>
+        <a href="#" class="header__nav-link"><i class="fas fa-plane"></i> Flights</a>
+        <a href="#restaurants" class="header__nav-link"><i class="fas fa-utensils"></i> Restaurants</a>
+        <a href="#" class="header__nav-link"><i class="fas fa-umbrella-beach"></i> Vacation</a>
+        <a href="#" class="header__nav-link header__nav-link--cta">Sign in</a>
+      </nav>
+
+      <button class="header__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#hotels"><i class="fas fa-hotel"></i> Hotels</a>
+      <a href="#"><i class="fas fa-plane"></i> Flights</a>
+      <a href="#restaurants"><i class="fas fa-utensils"></i> Restaurants</a>
+      <a href="#"><i class="fas fa-umbrella-beach"></i> Vacation</a>
+      <a href="#">Sign in</a>
+    </nav>
+  </header>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="hero" aria-label="Site hero">
+    <div class="hero__bg">
+      <img src="beautiful.webp"
+           alt="Scenic travel destination" class="hero__bg-img" loading="eager" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Find your next adventure</p>
+      <h1 class="hero__heading">Where will <em>you</em> go next?</h1>
+      <p class="hero__sub">Reviews you trust. Trips you'll love.</p>
+
+      <!-- Hero Search -->
+      <div class="hero__search-box">
+        <div class="hero__search-tabs" role="tablist">
+          <button class="hero__tab hero__tab--active" role="tab" aria-selected="true">Hotels</button>
+          <button class="hero__tab" role="tab" aria-selected="false">Flights</button>
+          <button class="hero__tab" role="tab" aria-selected="false">Restaurants</button>
+          <button class="hero__tab" role="tab" aria-selected="false">Things to do</button>
+        </div>
+        <div class="hero__search-form">
+          <div class="hero__field">
+            <label><i class="fas fa-map-marker-alt"></i> Destination</label>
+            <input type="text" placeholder="City, hotel, attraction…" aria-label="Destination" />
+          </div>
+          <div class="hero__field">
+            <label><i class="fas fa-calendar-alt"></i> Check-in</label>
+            <input type="date" aria-label="Check-in date" />
+          </div>
+          <div class="hero__field">
+            <label><i class="fas fa-calendar-alt"></i> Check-out</label>
+            <input type="date" aria-label="Check-out date" />
+          </div>
+          <div class="hero__field">
+            <label><i class="fas fa-user"></i> Guests</label>
+            <select aria-label="Number of guests">
+              <option>1 adult</option>
+              <option>2 adults</option>
+              <option>2 adults, 1 child</option>
+              <option>2 adults, 2 children</option>
+            </select>
+          </div>
+          <button class="hero__search-btn" type="button">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== CATEGORY NAV ======================== -->
+  <nav class="cat-nav" aria-label="Browse by category">
+    <div class="cat-nav__inner">
+      <a href="#" class="cat-pill cat-pill--active"><i class="fas fa-hotel"></i> Hotels</a>
+      <a href="#" class="cat-pill"><i class="fas fa-utensils"></i> Restaurants</a>
+      <a href="#" class="cat-pill"><i class="fas fa-ticket-alt"></i> Attractions</a>
+      <a href="#" class="cat-pill"><i class="fas fa-plane-departure"></i> Flights</a>
+      <a href="#" class="cat-pill"><i class="fas fa-car"></i> Car Rentals</a>
+      <a href="#" class="cat-pill"><i class="fas fa-ship"></i> Cruises</a>
+      <a href="#" class="cat-pill"><i class="fas fa-camera"></i> Travel Stories</a>
+      <a href="#" class="cat-pill"><i class="fas fa-forum"></i> Forums</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ======================== SEARCH SECTION ======================== -->
+    <section class="search-section" aria-labelledby="search-heading">
+      <div class="container">
+        <h2 class="section-title" id="search-heading">Explore destinations</h2>
+        <p class="section-sub">Search and filter to find exactly what you're looking for.</p>
+
+        <div class="search-section__box">
+          <div class="search-section__input-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search cities, hotels, restaurants…" aria-label="Search" />
+          </div>
+          <div class="search-section__filters">
+            <div class="filter-group">
+              <label for="price-filter">Price Range</label>
+              <select id="price-filter" aria-label="Price range">
+                <option>Any price</option>
+                <option>$ Budget</option>
+                <option>$$ Mid-range</option>
+                <option>$$$ Upscale</option>
+                <option>$$$$ Luxury</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="rating-filter">Min Rating</label>
+              <select id="rating-filter" aria-label="Minimum rating">
+                <option>Any rating</option>
+                <option>3+ circles</option>
+                <option>4+ circles</option>
+                <option>4.5+ circles</option>
+                <option>5 circles</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="type-filter">Type</label>
+              <select id="type-filter" aria-label="Listing type">
+                <option>All types</option>
+                <option>Hotels</option>
+                <option>Restaurants</option>
+                <option>Attractions</option>
+                <option>Vacation Rentals</option>
+              </select>
+            </div>
+            <button class="filter-btn">Apply Filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== FEATURED DESTINATIONS ======================== -->
+    <section class="section destinations" aria-labelledby="dest-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="dest-heading">Featured destinations</h2>
+            <p class="section-sub">Travellers' picks for the season</p>
+          </div>
+          <a href="#" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="dest-grid">
+          <a href="#" class="dest-card dest-card--large">
+            <img src="Bali.jpg" alt="Bali, Indonesia" loading="lazy" />
+            <div class="dest-card__info">
+              <span class="dest-card__tag">Trending</span>
+              <h3>Bali, Indonesia</h3>
+              <p>1,284 hotels · 3,012 restaurants</p>
+            </div>
+          </a>
+          <a href="#" class="dest-card">
+            <img src="france.jpg" alt="Paris, France" loading="lazy" />
+            <div class="dest-card__info">
+              <span class="dest-card__tag">Classic</span>
+              <h3>Paris, France</h3>
+              <p>6,211 hotels</p>
+            </div>
+          </a>
+          <a href="#" class="dest-card">
+            <img src="tokyo.jpg" alt="Tokyo, Japan" loading="lazy" />
+            <div class="dest-card__info">
+              <span class="dest-card__tag">Popular</span>
+              <h3>Tokyo, Japan</h3>
+              <p>4,890 hotels</p>
+            </div>
+          </a>
+          <a href="#" class="dest-card">
+            <img src="newyork.jpg" alt="New York, USA" loading="lazy" />
+            <div class="dest-card__info">
+              <span class="dest-card__tag">Must-see</span>
+              <h3>New York, USA</h3>
+              <p>8,432 hotels</p>
+            </div>
+          </a>
+          <a href="#" class="dest-card">
+            <img src="Dubai.jpg" alt="Dubai, UAE" loading="lazy" />
+            <div class="dest-card__info">
+              <span class="dest-card__tag">Luxury</span>
+              <h3>Dubai, UAE</h3>
+              <p>2,100 hotels</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== POPULAR HOTELS ======================== -->
+    <section class="section section--alt" id="hotels" aria-labelledby="hotels-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="hotels-heading">Popular hotels</h2>
+            <p class="section-sub">Top-rated stays handpicked by our community</p>
+          </div>
+          <a href="#" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="cards-grid" role="list">
+
+          <article class="listing-card" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="marinabaysands.jpg" alt="Marina Bay Sands" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+              <span class="listing-card__badge">Travellers' Choice</span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating" aria-label="Rating 5 out of 5">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">4,812 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Marina Bay Sands</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Singapore</p>
+              <p class="listing-card__desc">Iconic sky-high infinity pool, world-class casino, and stunning marina views await.</p>
+              <div class="listing-card__footer">
+                <div class="listing-card__price">
+                  <span class="price-label">From</span>
+                  <strong>$420</strong>
+                  <span class="price-night">/night</span>
+                </div>
+                <a href="#" class="card-btn">View deal</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="BurjAIArabJumeirah.jpg" alt="Burj Al Arab" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+              <span class="listing-card__badge listing-card__badge--gold">Luxury Pick</span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating" aria-label="Rating 5 out of 5">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">3,229 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Burj Al Arab Jumeirah</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Dubai, UAE</p>
+              <p class="listing-card__desc">The world's most iconic hotel — a sail-shaped silhouette rising from its own private island.</p>
+              <div class="listing-card__footer">
+                <div class="listing-card__price">
+                  <span class="price-label">From</span>
+                  <strong>$1,800</strong>
+                  <span class="price-night">/night</span>
+                </div>
+                <a href="#" class="card-btn">View deal</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="fourseasonsresort.jpg" alt="Four Seasons Bali" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating" aria-label="Rating 4.5 out of 5">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--half"></span>
+                <span class="review-count">2,108 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Four Seasons Resort Bali</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Sayan, Bali</p>
+              <p class="listing-card__desc">Perched above the Ayung River — terraced villas, Balinese culture, and lush jungle all around.</p>
+              <div class="listing-card__footer">
+                <div class="listing-card__price">
+                  <span class="price-label">From</span>
+                  <strong>$680</strong>
+                  <span class="price-night">/night</span>
+                </div>
+                <a href="#" class="card-btn">View deal</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="ritzparis.jpg" alt="The Ritz Paris" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+              <span class="listing-card__badge">Travellers' Choice</span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating" aria-label="Rating 5 out of 5">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">1,874 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">The Ritz Paris</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+              <p class="listing-card__desc">A Place Vendôme legend — Hemingway's bar, the Chanel suite, and 150 years of Parisian glamour.</p>
+              <div class="listing-card__footer">
+                <div class="listing-card__price">
+                  <span class="price-label">From</span>
+                  <strong>$1,200</strong>
+                  <span class="price-night">/night</span>
+                </div>
+                <a href="#" class="card-btn">View deal</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== TOP RESTAURANTS ======================== -->
+    <section class="section" id="restaurants" aria-labelledby="rest-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="rest-heading">Top-rated restaurants</h2>
+            <p class="section-sub">Where the world eats — rated by millions of travellers</p>
+          </div>
+          <a href="#" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="cards-grid" role="list">
+
+          <article class="listing-card listing-card--restaurant" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="OsteriaFrancescana.jpg" alt="Osteria Francescana" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+              <span class="listing-card__badge">World's Best</span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">1,443 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Osteria Francescana</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Modena, Italy</p>
+              <div class="listing-card__tags">
+                <span class="tag">Italian</span>
+                <span class="tag">Fine Dining</span>
+                <span class="tag">$$$$</span>
+              </div>
+              <p class="listing-card__desc">Three Michelin stars. Chef Massimo Bottura's meditation on Italian culinary memory.</p>
+              <div class="listing-card__footer">
+                <span class="open-status open-status--open"><i class="fas fa-circle"></i> Open now</span>
+                <a href="#" class="card-btn">Reserve table</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card listing-card--restaurant" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="nobutokyo.jpg" alt="Nobu Tokyo" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--half"></span>
+                <span class="review-count">2,817 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Nobu Tokyo</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Tokyo, Japan</p>
+              <div class="listing-card__tags">
+                <span class="tag">Japanese</span>
+                <span class="tag">Sushi</span>
+                <span class="tag">$$$</span>
+              </div>
+              <p class="listing-card__desc">Where Peruvian flavours meet Japanese precision — the black cod miso is a must.</p>
+              <div class="listing-card__footer">
+                <span class="open-status open-status--open"><i class="fas fa-circle"></i> Open now</span>
+                <a href="#" class="card-btn">Reserve table</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card listing-card--restaurant" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="lebernardin.jpg" alt="Le Bernardin" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+              <span class="listing-card__badge">Travellers' Choice</span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">3,102 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Le Bernardin</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> New York, USA</p>
+              <div class="listing-card__tags">
+                <span class="tag">Seafood</span>
+                <span class="tag">French</span>
+                <span class="tag">$$$$</span>
+              </div>
+              <p class="listing-card__desc">The pinnacle of French seafood in New York — four-star dining since 1986, three Michelin stars.</p>
+              <div class="listing-card__footer">
+                <span class="open-status open-status--closed"><i class="fas fa-circle"></i> Closes 10 PM</span>
+                <a href="#" class="card-btn">Reserve table</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="listing-card listing-card--restaurant" role="listitem">
+            <a href="#" class="listing-card__img-link">
+              <img src="nariwasa.webp" alt="Narisawa" loading="lazy" />
+              <span class="listing-card__fav" aria-label="Save to favourites"><i class="fas fa-heart"></i></span>
+            </a>
+            <div class="listing-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--half"></span>
+                <span class="review-count">980 reviews</span>
+              </div>
+              <h3 class="listing-card__title"><a href="#">Narisawa</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Tokyo, Japan</p>
+              <div class="listing-card__tags">
+                <span class="tag">Innovative</span>
+                <span class="tag">Japanese</span>
+                <span class="tag">$$$$</span>
+              </div>
+              <p class="listing-card__desc">Chef Yoshihiro Narisawa's "Satoyama cuisine" — a breathtaking tribute to Japan's forests and fields.</p>
+              <div class="listing-card__footer">
+                <span class="open-status open-status--open"><i class="fas fa-circle"></i> Open now</span>
+                <a href="#" class="card-btn">Reserve table</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== ATTRACTIONS ======================== -->
+    <section class="section section--alt" aria-labelledby="attr-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="attr-heading">Things to do</h2>
+            <p class="section-sub">Experiences rated excellent by travellers</p>
+          </div>
+          <a href="#" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="attr-list" role="list">
+
+          <article class="attr-card" role="listitem">
+            <img src="EiffelTower.jpg" alt="Eiffel Tower" loading="lazy" />
+            <div class="attr-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">128,040 reviews</span>
+              </div>
+              <h3><a href="#">Eiffel Tower</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Paris, France · Landmark</p>
+              <p>Skip-the-line summit tickets available. The iron lady at sunset is unmissable.</p>
+            </div>
+            <div class="attr-card__action">
+              <span class="attr-price">From $28</span>
+              <a href="#" class="card-btn">Book now</a>
+            </div>
+          </article>
+
+          <article class="attr-card" role="listitem">
+            <img src="TheColosseum.jpg" alt="Colosseum Rome" loading="lazy" />
+            <div class="attr-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--half"></span>
+                <span class="review-count">87,500 reviews</span>
+              </div>
+              <h3><a href="#">The Colosseum</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Rome, Italy · Ancient ruin</p>
+              <p>2,000-year-old amphitheatre. Guided arena-floor tours bring gladiatorial history to life.</p>
+            </div>
+            <div class="attr-card__action">
+              <span class="attr-price">From $22</span>
+              <a href="#" class="card-btn">Book now</a>
+            </div>
+          </article>
+
+          <article class="attr-card" role="listitem">
+            <img src="tajmahal.jpg" alt="Taj Mahal" loading="lazy" />
+            <div class="attr-card__body">
+              <div class="listing-card__rating">
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="bubble bubble--5"></span>
+                <span class="review-count">64,210 reviews</span>
+              </div>
+              <h3><a href="#">Taj Mahal</a></h3>
+              <p class="listing-card__meta"><i class="fas fa-map-marker-alt"></i> Agra, India · UNESCO site</p>
+              <p>A marble monument to eternal love — most breathtaking at sunrise, avoid midday crowds.</p>
+            </div>
+            <div class="attr-card__action">
+              <span class="attr-price">From $15</span>
+              <a href="#" class="card-btn">Book now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== TRAVELLERS REVIEWS CTA ======================== -->
+    <section class="review-cta" aria-labelledby="cta-heading">
+      <div class="container review-cta__inner">
+        <div class="review-cta__text">
+          <h2 id="cta-heading">Millions of reviews. One trusted voice.</h2>
+          <p>Over 1 billion reviews and opinions from travellers around the world. Sign up free and share your own.</p>
+          <div class="review-cta__btns">
+            <a href="#" class="btn btn--green">Write a review</a>
+            <a href="#" class="btn btn--outline">Join free</a>
+          </div>
+        </div>
+        <div class="review-cta__stats">
+          <div class="stat">
+            <strong>1B+</strong>
+            <span>Reviews & opinions</span>
+          </div>
+          <div class="stat">
+            <strong>8M+</strong>
+            <span>Hotels, restaurants & activities</span>
+          </div>
+          <div class="stat">
+            <strong>490M+</strong>
+            <span>Monthly visitors</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__top">
+      <div class="footer__col">
+        <h4 class="footer__heading">Explore</h4>
+        <ul>
+          <li><a href="#">Hotels</a></li>
+          <li><a href="#">Vacation Rentals</a></li>
+          <li><a href="#">Restaurants</a></li>
+          <li><a href="#">Things to Do</a></li>
+          <li><a href="#">Flights</a></li>
+          <li><a href="#">Travel Stories</a></li>
+          <li><a href="#">Cruises</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Community</h4>
+        <ul>
+          <li><a href="#">Write a review</a></li>
+          <li><a href="#">Add a place</a></li>
+          <li><a href="#">Travel forum</a></li>
+          <li><a href="#">Travellers' Choice</a></li>
+          <li><a href="#">Help centre</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Business</h4>
+        <ul>
+          <li><a href="#">Owners</a></li>
+          <li><a href="#">List your property</a></li>
+          <li><a href="#">Advertise with us</a></li>
+          <li><a href="#">Access our content</a></li>
+          <li><a href="#">Become an affiliate</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Get the app</h4>
+        <div class="footer__apps">
+          <a href="#" class="app-badge"><i class="fab fa-apple"></i> App Store</a>
+          <a href="#" class="app-badge"><i class="fab fa-google-play"></i> Google Play</a>
+        </div>
+        <h4 class="footer__heading" style="margin-top:20px">Follow us</h4>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <div class="footer__logo">
+          <svg viewBox="0 0 60 40" width="36" height="24" aria-hidden="true">
+            <ellipse cx="20" cy="24" rx="14" ry="14" fill="#34e0a1"/>
+            <ellipse cx="40" cy="24" rx="14" ry="14" fill="#34e0a1"/>
+            <circle cx="20" cy="24" r="6" fill="#fff"/>
+            <circle cx="40" cy="24" r="6" fill="#fff"/>
+            <circle cx="20" cy="24" r="3" fill="#000"/>
+            <circle cx="40" cy="24" r="3" fill="#000"/>
+          </svg>
+          <span>TripAdvisor</span>
+        </div>
+        <p class="footer__copy">&copy; 2024 TripAdvisor LLC. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+    burger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    // Hero tabs
+    document.querySelectorAll('.hero__tab').forEach(tab => {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.hero__tab').forEach(t => {
+          t.classList.remove('hero__tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('hero__tab--active');
+        this.setAttribute('aria-selected', 'true');
+      });
+    });
+
+    // Cat pills
+    document.querySelectorAll('.cat-pill').forEach(pill => {
+      pill.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('cat-pill--active'));
+        this.classList.add('cat-pill--active');
+      });
+    });
+
+    // Favourite toggle
+    document.querySelectorAll('.listing-card__fav').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        this.classList.toggle('active');
+      });
+    });
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('header--scrolled', window.scrollY > 10);
+    });
+
+    // Sort buttons
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('sort-btn--active'));
+        this.classList.add('sort-btn--active');
+      });
+    });
+  </script>
+</body>
+</html>
